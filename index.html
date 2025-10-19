@@ -236,40 +236,46 @@
                 </div>
             </section>
 
-            <!-- Calculator Section -->
-            <section class="col-12 order-4" id="calculator">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h2 class="card-title h5 mb-4 fw-bold">Калькулятор стоимости заказа</h2>
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <label for="product" class="form-label fw-bold">Выберите товар:</label>
-                                <select class="form-select" id="product">
-                                    <option value="2800000">A-Класс Седан - 2 800 000 ₽</option>
+           <!-- Калькулятор -->
+<div class="container mt-5 order-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-14" >
+            <div id="calculator"  class="calculator card shadow">
+                <div class="text-white" >
+                     <h2 class="card-title h5 mb-4 fw-bold">Калькулятор</h2>
+                </div>
+                <div class="card-body">
+                    <form id="orderForm" class="needs-validation" novalidate>
+                        <div class="mb-3 form-section">
+                            <label for="productSelect" class="form-label fw-bold">Выберите товар:</label>
+                            <select class="form-select" id="productSelect" required>
+                                <option value="" disabled selected>-- Выберите товар --</option>
+                                 <option value="2800000">A-Класс Седан - 2 800 000 ₽</option>
                                     <option value="2650000">A-Класс Хэтчбек - 2 650 000 ₽</option>
                                     <option value="4200000">C-Класс Седан - 4 200 000 ₽</option>
                                     <option value="4500000">C-Класс Универсал - 4 500 000 ₽</option>
                                     <option value="5600000">E-Класс Седан - 5 600 000 ₽</option>
                                     <option value="9800000">S-Класс Седан - 9 800 000 ₽</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="quantity" class="form-label fw-bold">Количество:</label>
-                                <input type="text" class="form-control" id="quantity" placeholder="Введите количество">
-                                <div class="invalid-feedback" id="quantity-error">
-                                    Пожалуйста, введите корректное количество (только цифры)
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="button" class="btn btn-dark w-100" id="calculate-btn">Рассчитать стоимость</button>
-                            </div>
-                            <div class="col-12">
-                                <div class="alert alert-info mt-3 d-none" id="result"></div>
-                            </div>
+                            </select>
+                            <div class="invalid-feedback">Пожалуйста, выберите товар</div>
                         </div>
+                        <div class="mb-3 form-section">
+                            <label for="quantityInput" class="form-label fw-bold">Количество:</label>
+                            <input type="number" class="form-control" id="quantityInput" placeholder="Введите количество" min="1" required>
+                            <div class="invalid-feedback">Введите целое положительное число</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 calculator-button">Рассчитать стоимость</button>
+                    </form>
+                    <div class="mt-4">
+                        <h3 class="h5">Стоимость заказа: <span id="totalCost" class="text-black">0</span> руб.</h3>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
         </div>
     </main>
 
@@ -314,5 +320,4 @@
         });
     </script>
 </body>
-
 </html>
